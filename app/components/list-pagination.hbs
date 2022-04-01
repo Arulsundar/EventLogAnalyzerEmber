@@ -1,0 +1,24 @@
+{{yield paginatedItems}}
+<nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-center">
+    {{#if showPrevious}}
+    <li class="page-item">
+      <a class="page-link" {{action "previousClicked" }} aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+        <span class="sr-only">Previous</span>
+      </a>
+    </li>
+    {{/if}}
+    {{#each pageNumbers as |pageNumber|}}
+    <li class="page-item"><a class="page-link" {{action "pageClicked" pageNumber}}>{{pageNumber}}</a></li>
+    {{/each}}
+    {{#if showNext}}
+    <li class="page-item">
+      <a class="page-link" {{action "nextClicked" }} aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+        <span class="sr-only">Next</span>
+      </a>
+    </li>
+    {{/if}}
+  </ul>
+</nav>
